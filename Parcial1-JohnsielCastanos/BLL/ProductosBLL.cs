@@ -45,7 +45,7 @@ namespace Parcial1_JohnsielCastanos.BLL
                 db.Entry(producto).State = EntityState.Modified;
                 paso = (db.SaveChanges() > 0);
             }
-            catch
+            catch(Exception)
             {
                 throw;
             }
@@ -69,7 +69,7 @@ namespace Parcial1_JohnsielCastanos.BLL
                 paso = (db.SaveChanges() > 0);
 
             }
-            catch
+            catch(Exception)
             {
                 throw;
 
@@ -80,6 +80,26 @@ namespace Parcial1_JohnsielCastanos.BLL
             }
 
             return paso;
+        }
+
+        public static Productos Buscar(int id)
+        {
+            Contexto db = new Contexto();
+            Productos producto = new Productos();
+
+            try
+            {
+                producto = db.Producto.Find(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+            return producto;
         }
 
 
