@@ -35,6 +35,28 @@ namespace Parcial1_JohnsielCastanos.BLL
             return paso;
         }
 
+        public static bool Modificar(Productos producto)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                db.Entry(producto).State = EntityState.Modified;
+                paso = (db.SaveChanges() > 0);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+            return paso;
+        }
+
+
 
 
     }
