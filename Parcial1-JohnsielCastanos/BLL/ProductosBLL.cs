@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Parcial1_JohnsielCastanos.DAL;
 using Parcial1_JohnsielCastanos.Entidades;
 using System.Data.Entity;
+using System.Linq.Expressions;
 
 namespace Parcial1_JohnsielCastanos.BLL
 {
@@ -100,6 +101,26 @@ namespace Parcial1_JohnsielCastanos.BLL
                 db.Dispose();
             }
             return producto;
+        }
+
+        public static List<Productos> GetList(Expression<Func<Productos, bool>> producto)
+        {
+            List<Productos> Lista = new List<Productos>();
+            Contexto db = new Contexto();
+
+            try
+            {
+                Lista = db.Producto.Where(producto).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+            return Lista;
         }
 
 
