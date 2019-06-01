@@ -98,8 +98,7 @@
             this.DescripciontextBox.Location = new System.Drawing.Point(143, 80);
             this.DescripciontextBox.Name = "DescripciontextBox";
             this.DescripciontextBox.Size = new System.Drawing.Size(185, 22);
-            this.DescripciontextBox.TabIndex = 5;
-            this.DescripciontextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescripciontextBox_KeyPress);
+            this.DescripciontextBox.TabIndex = 0;
             // 
             // Guardarbutton
             // 
@@ -108,7 +107,7 @@
             this.Guardarbutton.Location = new System.Drawing.Point(168, 282);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(75, 64);
-            this.Guardarbutton.TabIndex = 8;
+            this.Guardarbutton.TabIndex = 4;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Guardarbutton.UseVisualStyleBackColor = true;
@@ -121,7 +120,7 @@
             this.Eliminarbutton.Location = new System.Drawing.Point(294, 282);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(75, 64);
-            this.Eliminarbutton.TabIndex = 9;
+            this.Eliminarbutton.TabIndex = 7;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
@@ -131,9 +130,9 @@
             // 
             this.ValorInventariotextBox.Location = new System.Drawing.Point(143, 220);
             this.ValorInventariotextBox.Name = "ValorInventariotextBox";
+            this.ValorInventariotextBox.ReadOnly = true;
             this.ValorInventariotextBox.Size = new System.Drawing.Size(100, 22);
-            this.ValorInventariotextBox.TabIndex = 10;
-    
+            this.ValorInventariotextBox.TabIndex = 3;
             // 
             // ProductoIdnumericUpDown
             // 
@@ -149,7 +148,7 @@
             this.Nuevobutton.Location = new System.Drawing.Point(31, 282);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(75, 64);
-            this.Nuevobutton.TabIndex = 7;
+            this.Nuevobutton.TabIndex = 5;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Nuevobutton.UseVisualStyleBackColor = true;
@@ -173,7 +172,8 @@
             this.ExistenciatextBox.Location = new System.Drawing.Point(143, 130);
             this.ExistenciatextBox.Name = "ExistenciatextBox";
             this.ExistenciatextBox.Size = new System.Drawing.Size(100, 22);
-            this.ExistenciatextBox.TabIndex = 14;
+            this.ExistenciatextBox.TabIndex = 1;
+            this.ExistenciatextBox.TextChanged += new System.EventHandler(this.ExistenciatextBox_TextChanged);
             this.ExistenciatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ExistenciatextBox_KeyPress);
             // 
             // CostotextBox
@@ -181,7 +181,8 @@
             this.CostotextBox.Location = new System.Drawing.Point(143, 175);
             this.CostotextBox.Name = "CostotextBox";
             this.CostotextBox.Size = new System.Drawing.Size(100, 22);
-            this.CostotextBox.TabIndex = 15;
+            this.CostotextBox.TabIndex = 2;
+            this.CostotextBox.TextChanged += new System.EventHandler(this.CostotextBox_TextChanged);
             this.CostotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CostotextBox_KeyPress);
             // 
             // errorProvider
