@@ -32,7 +32,7 @@ namespace Parcial1_JohnsielCastanos.UI
         public Productos LlenaClase()
         {
             Productos producto = new Productos();
-            producto.ProductosId = Convert.ToInt32(ProductoIdnumericUpDown.Value);
+            producto.ProductoId = Convert.ToInt32(ProductoIdnumericUpDown.Value);
             producto.Descripcion = DescripciontextBox.Text;
             producto.Existencia = Convert.ToInt32(ExistenciatextBox.Text);
             producto.Costo = Convert.ToSingle(CostotextBox.Text);
@@ -42,7 +42,7 @@ namespace Parcial1_JohnsielCastanos.UI
 
         private void LlenaCampo(Productos producto)
         {
-            ProductoIdnumericUpDown.Value = producto.ProductosId;
+            ProductoIdnumericUpDown.Value = producto.ProductoId;
             DescripciontextBox.Text = producto.Descripcion;
             ExistenciatextBox.Text = producto.Existencia.ToString();
             CostotextBox.Text = producto.Costo.ToString();

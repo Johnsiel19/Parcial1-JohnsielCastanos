@@ -36,7 +36,7 @@ namespace Parcial1_JohnsielCastanos.UI.Consultas
 
                     case "Id":
                         int id = Convert.ToInt32(CriteriotextBox.Text);
-                        listado = ProductosBLL.GetList(p => p.ProductosId == id);
+                        listado = ProductosBLL.GetList(p => p.ProductoId == id);
                         break;
 
                     case "Descripcion":
