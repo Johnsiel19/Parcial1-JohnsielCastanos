@@ -26,7 +26,7 @@ namespace Parcial1_JohnsielCastanos.BLL
             }
             catch (Exception)
             {
-                throw
+                throw;
             }
             finally
             {

@@ -64,12 +64,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\rProductos.cs">
+    <Compile Include="UI\Registros\rProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\rProductos.Designer.cs">
+    <Compile Include="UI\Registros\rProductos.Designer.cs">
       <DependentUpon>rProductos.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -78,8 +81,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI\rProductos.resx">
+    <EmbeddedResource Include="UI\Registros\rProductos.resx">
       <DependentUpon>rProductos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -99,6 +103,10 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="DAL\Script\SQLProductos.sql" />
+    <None Include="Resources\eliminar.png" />
+    <None Include="Resources\guardar.png" />
+    <None Include="Resources\nuevo.png" />
+    <None Include="Resources\buscar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
