@@ -92,6 +92,7 @@
             this.valorInvetarioToolStripMenuItem.Name = "valorInvetarioToolStripMenuItem";
             this.valorInvetarioToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.valorInvetarioToolStripMenuItem.Text = "Valor invetario";
+            this.valorInvetarioToolStripMenuItem.Click += new System.EventHandler(this.ValorInvetarioToolStripMenuItem_Click);
             // 
             // MainForm
             // 

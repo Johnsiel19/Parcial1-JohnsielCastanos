@@ -34,5 +34,11 @@ namespace Parcial1_JohnsielCastanos
             cProductos frm = new cProductos();
             frm.Show();
         }
+
+        private void ValorInvetarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cInventario frm = new cInventario();
+            frm.Show();
+        }
     }
 }
