@@ -30,12 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.registrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produsctosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.valorInvetarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -52,10 +51,6 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // registrosToolStripMenuItem
             // 
             this.registrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -67,15 +62,14 @@
             // productosToolStripMenuItem
             // 
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.productosToolStripMenuItem.Text = "Productos";
             this.productosToolStripMenuItem.Click += new System.EventHandler(this.ProductosToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.produsctosToolStripMenuItem,
-            this.valorInvetarioToolStripMenuItem});
+            this.produsctosToolStripMenuItem});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
             this.consultasToolStripMenuItem.Text = "Consultas";
@@ -84,15 +78,12 @@
             // 
             this.produsctosToolStripMenuItem.Name = "produsctosToolStripMenuItem";
             this.produsctosToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.produsctosToolStripMenuItem.Text = "Productos";
+            this.produsctosToolStripMenuItem.Text = "Valor Inventario";
             this.produsctosToolStripMenuItem.Click += new System.EventHandler(this.ProdusctosToolStripMenuItem_Click);
             // 
-            // valorInvetarioToolStripMenuItem
+            // errorProvider1
             // 
-            this.valorInvetarioToolStripMenuItem.Name = "valorInvetarioToolStripMenuItem";
-            this.valorInvetarioToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.valorInvetarioToolStripMenuItem.Text = "Valor invetario";
-            this.valorInvetarioToolStripMenuItem.Click += new System.EventHandler(this.ValorInvetarioToolStripMenuItem_Click);
+            this.errorProvider1.ContainerControl = this;
             // 
             // MainForm
             // 
@@ -119,7 +110,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produsctosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem valorInvetarioToolStripMenuItem;
     }
 }
 

@@ -31,14 +31,10 @@ namespace Parcial1_JohnsielCastanos
 
         private void ProdusctosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cProductos frm = new cProductos();
-            frm.Show();
-        }
-
-        private void ValorInvetarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
             cInventario frm = new cInventario();
             frm.Show();
+
+
         }
     }
 }

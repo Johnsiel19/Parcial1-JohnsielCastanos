@@ -241,9 +241,6 @@ namespace Parcial1_JohnsielCastanos.UI
             soloNumeros(e);
         }
 
-        private void ValorInventariotextBox_TextChanged(object sender, EventArgs e)
-        {
-            soloNumeros(e);
-        }
+  
     }
 }

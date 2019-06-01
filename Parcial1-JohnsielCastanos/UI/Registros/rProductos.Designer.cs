@@ -133,7 +133,7 @@
             this.ValorInventariotextBox.Name = "ValorInventariotextBox";
             this.ValorInventariotextBox.Size = new System.Drawing.Size(100, 22);
             this.ValorInventariotextBox.TabIndex = 10;
-            this.ValorInventariotextBox.TextChanged += new System.EventHandler(this.ValorInventariotextBox_TextChanged);
+    
             // 
             // ProductoIdnumericUpDown
             // 

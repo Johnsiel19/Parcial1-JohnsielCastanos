@@ -70,12 +70,6 @@
     <Compile Include="UI\Consultas\cInventario.Designer.cs">
       <DependentUpon>cInventario.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Consultas\cProductos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Consultas\cProductos.Designer.cs">
-      <DependentUpon>cProductos.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Registros\rProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,9 +91,6 @@
     </Compile>
     <EmbeddedResource Include="UI\Consultas\cInventario.resx">
       <DependentUpon>cInventario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Consultas\cProductos.resx">
-      <DependentUpon>cProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\rProductos.resx">
       <DependentUpon>rProductos.cs</DependentUpon>
