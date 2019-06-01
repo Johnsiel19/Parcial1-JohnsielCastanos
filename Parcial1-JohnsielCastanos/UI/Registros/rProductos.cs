@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Parcial1_JohnsielCastanos.Entidades;
+using Parcial1_JohnsielCastanos.BLL;
+using Parcial1_JohnsielCastanos.DAL;
 
 namespace Parcial1_JohnsielCastanos.UI
 {
@@ -33,7 +35,7 @@ namespace Parcial1_JohnsielCastanos.UI
             producto.ProductosId = Convert.ToInt32(ProductoIdnumericUpDown.Value);
             producto.Descripcion = DescripciontextBox.Text;
             producto.Existencia = Convert.ToInt32(ExistenciatextBox.Text);
-            producto.Costo = Convert.ToSingle(CostotextBox.Text;
+            producto.Costo = Convert.ToSingle(CostotextBox.Text);
             producto.ValorInvetario = Convert.ToSingle(ValorInventariotextBox.Text);
             return producto;
         }
@@ -49,6 +51,127 @@ namespace Parcial1_JohnsielCastanos.UI
 
         }
 
+        private bool ExisteEnLaBaseDeDatos()
+        {
+            Productos producto = ProductosBLL.Buscar((int) ProductoIdnumericUpDown.Value);
+            return (producto != null);
 
+        }
+
+        private bool Validar()
+        {
+
+            bool paso = true;
+            errorProvider.Clear();
+
+
+
+            if (DescripciontextBox.Text == string.Empty)
+            {
+                errorProvider.SetError(DescripciontextBox, "El campo Descripcion no puede estar vacio");
+                DescripciontextBox.Focus();
+                paso = false;
+            }
+
+            if (ExistenciatextBox.Text == string.Empty)
+            {
+                errorProvider.SetError(ExistenciatextBox, "El campooExistencia no puede estar vacio");
+                ExistenciatextBox.Focus();
+                paso = false;
+
+            }
+
+            if (CostotextBox.Text == string.Empty)
+            {
+                errorProvider.SetError(CostotextBox, "El Costo no puede estar vacio");
+                CostotextBox.Focus();
+                paso = false;
+
+            }
+
+
+
+            return paso;
+
+        }
+
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+
+            int id;
+            Productos producto = new Productos();
+
+            int.TryParse(ProductoIdnumericUpDown.Text, out id);
+            Limpiar();
+
+            producto = ProductosBLL.Buscar(id);
+
+            if (producto != null)
+            {
+                MessageBox.Show("Producto encontrado");
+                LlenaCampo(producto);
+
+            }
+            else
+            {
+                MessageBox.Show("Producto no existe");
+            }
+
+        }
+
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+            errorProvider.Clear();
+            int id;
+            int.TryParse(ProductoIdnumericUpDown.Text, out id);
+            Limpiar();
+            if (ProductosBLL.Eliminar(id))
+            {
+                MessageBox.Show("Eliminado");
+            }
+            else
+            {
+                errorProvider.SetError(ProductoIdnumericUpDown, "No se puede elimina, porque no existe");
+            }
+        }
+
+        private void Nuevobutton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void Guardarbutton_Click(object sender, EventArgs e)
+        {
+            Productos producto;
+            bool paso = false;
+
+            if (!Validar())
+                return;
+
+            producto = LlenaClase();
+
+
+            if (ProductoIdnumericUpDown.Value == 0)
+            {
+                paso = ProductosBLL.Guardar(producto);
+            }
+            else
+            {
+                if (!ExisteEnLaBaseDeDatos())
+                {
+                    MessageBox.Show("No se puede modificar una persona que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                paso = ProductosBLL.Modificar(producto);
+
+            }
+
+            if (paso)
+                MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Limpiar();
+
+        }
     }
 }
