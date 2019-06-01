@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Parcial1_JohnsielCastanos.UI;
+using Parcial1_JohnsielCastanos.UI.Consultas;
+
 
 
 namespace Parcial1_JohnsielCastanos
@@ -25,6 +27,12 @@ namespace Parcial1_JohnsielCastanos
             frm.Show();
 
 
+        }
+
+        private void ProdusctosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cProductos frm = new cProductos();
+            frm.Show();
         }
     }
 }
