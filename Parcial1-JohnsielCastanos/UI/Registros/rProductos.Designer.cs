@@ -99,6 +99,7 @@
             this.DescripciontextBox.Name = "DescripciontextBox";
             this.DescripciontextBox.Size = new System.Drawing.Size(185, 22);
             this.DescripciontextBox.TabIndex = 5;
+            this.DescripciontextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescripciontextBox_KeyPress);
             // 
             // Guardarbutton
             // 
@@ -132,6 +133,7 @@
             this.ValorInventariotextBox.Name = "ValorInventariotextBox";
             this.ValorInventariotextBox.Size = new System.Drawing.Size(100, 22);
             this.ValorInventariotextBox.TabIndex = 10;
+            this.ValorInventariotextBox.TextChanged += new System.EventHandler(this.ValorInventariotextBox_TextChanged);
             // 
             // ProductoIdnumericUpDown
             // 
@@ -172,6 +174,7 @@
             this.ExistenciatextBox.Name = "ExistenciatextBox";
             this.ExistenciatextBox.Size = new System.Drawing.Size(100, 22);
             this.ExistenciatextBox.TabIndex = 14;
+            this.ExistenciatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ExistenciatextBox_KeyPress);
             // 
             // CostotextBox
             // 
@@ -179,6 +182,7 @@
             this.CostotextBox.Name = "CostotextBox";
             this.CostotextBox.Size = new System.Drawing.Size(100, 22);
             this.CostotextBox.TabIndex = 15;
+            this.CostotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CostotextBox_KeyPress);
             // 
             // errorProvider
             // 

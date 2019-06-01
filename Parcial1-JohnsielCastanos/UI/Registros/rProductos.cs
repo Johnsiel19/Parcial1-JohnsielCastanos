@@ -11,6 +11,7 @@ using Parcial1_JohnsielCastanos.Entidades;
 using Parcial1_JohnsielCastanos.BLL;
 using Parcial1_JohnsielCastanos.DAL;
 
+
 namespace Parcial1_JohnsielCastanos.UI
 {
     public partial class rProductos : Form
@@ -172,6 +173,77 @@ namespace Parcial1_JohnsielCastanos.UI
                 MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Limpiar();
 
+        }
+
+        public void soloLetras(KeyPressEventArgs e)
+        {
+            try
+            {
+                if (Char.IsLetter(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsSeparator(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public void soloNumeros(KeyPressEventArgs e)
+        {
+            try
+            {
+                if (Char.IsNumber(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void DescripciontextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloLetras(e);
+
+        }
+
+        private void ExistenciatextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloNumeros(e);
+        }
+
+        private void CostotextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloNumeros(e);
+        }
+
+        private void ValorInventariotextBox_TextChanged(object sender, EventArgs e)
+        {
+            soloNumeros(e);
         }
     }
 }
