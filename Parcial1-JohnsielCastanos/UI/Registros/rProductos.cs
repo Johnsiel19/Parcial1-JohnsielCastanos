@@ -197,7 +197,7 @@ namespace Parcial1_JohnsielCastanos.UI
                     e.Handled = true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
             }
@@ -215,12 +215,16 @@ namespace Parcial1_JohnsielCastanos.UI
                 {
                     e.Handled = false;
                 }
+                else if (Char.IsPunctuation( e.KeyChar))
+                {
+                    e.Handled = false;
+                }
                 else
                 {
                     e.Handled = true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
             }

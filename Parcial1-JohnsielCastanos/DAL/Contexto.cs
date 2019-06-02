@@ -12,6 +12,8 @@ namespace Parcial1_JohnsielCastanos.DAL
     {
         public DbSet<Productos> Producto { get; set; }
 
+        public DbSet<Inventario> inventario { get; set; }
+
         public Contexto() : base("ConStr") { }
 
     }
