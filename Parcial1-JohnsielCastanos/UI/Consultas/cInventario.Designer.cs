@@ -71,6 +71,7 @@
             this.Controls.Add(this.valortextBox);
             this.Controls.Add(this.label1);
             this.Name = "cInventario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Valor Inventario";
             this.ResumeLayout(false);
             this.PerformLayout();

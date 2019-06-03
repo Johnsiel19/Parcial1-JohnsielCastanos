@@ -17,13 +17,15 @@ namespace Parcial1_JohnsielCastanos.UI.Consultas
         public cInventario()
         {
             InitializeComponent();
+            valortextBox.Text = "00.00";
       
         }
-        float r = 0;
-        private void Calc()
+ 
+        private float Calc()
         {
+            float r = 0.0f;
             int i = 1;
-            r = 0;
+       
             Productos producto = new Productos();
             while (producto != null)
             {
@@ -33,7 +35,6 @@ namespace Parcial1_JohnsielCastanos.UI.Consultas
 
                 if (producto != null)
                 {
-                    
                     r = r+(producto.ValorInvetario);
   
                 }
@@ -42,10 +43,8 @@ namespace Parcial1_JohnsielCastanos.UI.Consultas
                     break; 
                 }
                 i++;
-
             }
-
-
+            return r;
         }
 
         private void Actualizarbutton_Click(object sender, EventArgs e)
@@ -57,14 +56,14 @@ namespace Parcial1_JohnsielCastanos.UI.Consultas
             inventario = InventarioBLL.Buscar(id);
             if ( inventario == null)
             {
-                Calc();
+             
                 inventario = LlenaClase();
                 paso = InventarioBLL.Guardar(inventario);
-                MessageBox.Show("Se ha creado ub buevo inventario" );
+                MessageBox.Show("Se ha creado un nuevo inventario" );
             }
             else
             {
-                Calc();
+           
                 inventario = LlenaClase();
                 if (!ExisteEnLaBaseDeDatos())
                 {
@@ -73,11 +72,9 @@ namespace Parcial1_JohnsielCastanos.UI.Consultas
                 }
                 paso = InventarioBLL.Modificar(inventario);
 
-                MessageBox.Show("Se ha actualizado buevo inventario");
+         
             }
-
              mostrar();
-
         }
 
         private bool ExisteEnLaBaseDeDatos()
@@ -100,15 +97,14 @@ namespace Parcial1_JohnsielCastanos.UI.Consultas
 
             if (inventario != null)
             {
-                MessageBox.Show("Producto encontrado");
+                MessageBox.Show("Inventario Actualizado");
                 LlenaCampo(inventario);
 
             }
             else
             {
-                MessageBox.Show("Producto no existe");
+                MessageBox.Show("Inventario no pudo ser Actualizado");
             }
-         
 
         }
 
@@ -122,7 +118,7 @@ namespace Parcial1_JohnsielCastanos.UI.Consultas
         public Inventario LlenaClase()
         {
             Inventario inventario = new Inventario();
-            inventario.Valor = Convert.ToSingle(r);
+            inventario.Valor = Convert.ToSingle(Calc());
             inventario.InventarioId = 1;
           
             return inventario;
