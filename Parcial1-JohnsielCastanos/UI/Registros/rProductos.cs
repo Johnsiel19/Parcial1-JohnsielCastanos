@@ -36,7 +36,7 @@ namespace Parcial1_JohnsielCastanos.UI
             Productos producto = new Productos();
             producto.ProductoId = Convert.ToInt32(ProductoIdnumericUpDown.Value);
             producto.Descripcion = DescripciontextBox.Text;
-            producto.Existencia = Convert.ToInt32(ExistenciatextBox.Text);
+            producto.Existencia = Convert.ToSingle(ExistenciatextBox.Text);
             producto.Costo = Convert.ToSingle(CostotextBox.Text);
             producto.ValorInvetario = Convert.ToSingle(ValorInventariotextBox.Text);
             return producto;
@@ -49,8 +49,6 @@ namespace Parcial1_JohnsielCastanos.UI
             ExistenciatextBox.Text = producto.Existencia.ToString();
             CostotextBox.Text = producto.Costo.ToString();
             ValorInventariotextBox.Text = producto.ValorInvetario.ToString();
-
-
         }
 
         private bool ExisteEnLaBaseDeDatos()
@@ -233,7 +231,7 @@ namespace Parcial1_JohnsielCastanos.UI
         private void ValorInventario()
         {
             if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length > 0)
-                ValorInventariotextBox.Text = Convert.ToString(Convert.ToInt32(CostotextBox.Text) * Convert.ToInt32(ExistenciatextBox.Text));
+                ValorInventariotextBox.Text = Convert.ToString(Convert.ToSingle(CostotextBox.Text) * Convert.ToSingle(ExistenciatextBox.Text));
 
             if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length == 0)
                 ValorInventariotextBox.Text = "0";

@@ -14,7 +14,7 @@ namespace Parcial1_JohnsielCastanos.Entidades
         public int ProductoId { get; set; }
 
         public string Descripcion { get; set; }
-        public int Existencia { get; set; }
+        public float Existencia { get; set; }
         public float Costo { get; set; }
         public float ValorInvetario { get; set;}
 
