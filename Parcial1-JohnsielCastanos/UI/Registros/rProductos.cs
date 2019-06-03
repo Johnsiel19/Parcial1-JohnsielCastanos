@@ -203,6 +203,7 @@ namespace Parcial1_JohnsielCastanos.UI
 
         public void soloNumeros(KeyPressEventArgs e)
         {
+      
             try
             {
                 if (Char.IsNumber(e.KeyChar))
@@ -213,13 +214,16 @@ namespace Parcial1_JohnsielCastanos.UI
                 {
                     e.Handled = false;
                 }
-                else if (Char.IsPunctuation( e.KeyChar))
+               else if(e.KeyChar == '.')
                 {
                     e.Handled = false;
+
                 }
+           
                 else
                 {
                     e.Handled = true;
+                    MessageBox.Show("Solo se aceptan Numeros");
                 }
             }
             catch (Exception )
