@@ -175,14 +175,6 @@ namespace Parcial1_JohnsielCastanos.UI
         public void soloNumeros(KeyPressEventArgs e)
         {
 
-
-           /* string j="";
-             j = text.Text;
-             string jj;
-            jj = j.Substring(0, Convert.ToInt32("."));
-
-
-
              try
              {
 
@@ -194,16 +186,17 @@ namespace Parcial1_JohnsielCastanos.UI
                  {
                      e.Handled = false;
                  }
-                else if(e.KeyChar == '.')
-                 {
 
-                         e.Handled = false;
-
+                else if (e.KeyChar == '.')
+                {
 
 
+                    e.Handled = false;
 
 
-                 }
+
+                }
+
 
                  else
                  {
@@ -214,7 +207,7 @@ namespace Parcial1_JohnsielCastanos.UI
              catch (Exception )
              {
 
-             }*/
+             }
         }
 
         private void ValorInventario()
@@ -234,14 +227,25 @@ namespace Parcial1_JohnsielCastanos.UI
 
       
 
-        private void CostotextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            ValorInventario();
-        }
 
         private void CostotextBox_TextChanged(object sender, EventArgs e)
         {
             ValorInventario();
+        }
+
+        private void ExistenciatextBox_TextChanged(object sender, EventArgs e)
+        {
+            ValorInventario();
+        }
+
+        private void ExistenciatextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloNumeros(e);
+        }
+
+        private void RProductos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloNumeros(e);
         }
     }
 }

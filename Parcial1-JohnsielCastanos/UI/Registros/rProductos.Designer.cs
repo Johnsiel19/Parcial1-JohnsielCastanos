@@ -104,7 +104,7 @@
             // 
             this.Guardarbutton.Image = global::Parcial1_JohnsielCastanos.Properties.Resources.guardar;
             this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Guardarbutton.Location = new System.Drawing.Point(142, 282);
+            this.Guardarbutton.Location = new System.Drawing.Point(143, 316);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(75, 64);
             this.Guardarbutton.TabIndex = 4;
@@ -117,7 +117,7 @@
             // 
             this.Eliminarbutton.Image = global::Parcial1_JohnsielCastanos.Properties.Resources.eliminar;
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(278, 282);
+            this.Eliminarbutton.Location = new System.Drawing.Point(278, 316);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(75, 64);
             this.Eliminarbutton.TabIndex = 7;
@@ -145,7 +145,7 @@
             // 
             this.Nuevobutton.Image = global::Parcial1_JohnsielCastanos.Properties.Resources.nuevo;
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Nuevobutton.Location = new System.Drawing.Point(15, 282);
+            this.Nuevobutton.Location = new System.Drawing.Point(15, 316);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(75, 64);
             this.Nuevobutton.TabIndex = 5;
@@ -174,7 +174,6 @@
             this.CostotextBox.Size = new System.Drawing.Size(100, 22);
             this.CostotextBox.TabIndex = 2;
             this.CostotextBox.TextChanged += new System.EventHandler(this.CostotextBox_TextChanged);
-            this.CostotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CostotextBox_KeyPress);
             // 
             // errorProvider
             // 
@@ -186,13 +185,14 @@
             this.ExistenciatextBox.Name = "ExistenciatextBox";
             this.ExistenciatextBox.Size = new System.Drawing.Size(100, 22);
             this.ExistenciatextBox.TabIndex = 1;
-   
+            this.ExistenciatextBox.TextChanged += new System.EventHandler(this.ExistenciatextBox_TextChanged);
+            this.ExistenciatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ExistenciatextBox_KeyPress);
             // 
             // rProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 365);
+            this.ClientSize = new System.Drawing.Size(373, 418);
             this.Controls.Add(this.CostotextBox);
             this.Controls.Add(this.ExistenciatextBox);
             this.Controls.Add(this.ProductoIdnumericUpDown);
@@ -210,6 +210,7 @@
             this.Name = "rProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro Producto";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RProductos_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.ProductoIdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
