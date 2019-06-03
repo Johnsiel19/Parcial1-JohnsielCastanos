@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Parcial1_JohnsielCastanos.Entidades;
 using Parcial1_JohnsielCastanos.BLL;
 using Parcial1_JohnsielCastanos.DAL;
-
+using System.Globalization;
 
 namespace Parcial1_JohnsielCastanos.UI
 {
@@ -64,12 +64,12 @@ namespace Parcial1_JohnsielCastanos.UI
             bool paso = true;
             errorProvider.Clear();
 
+          
 
 
-            if (DescripciontextBox.Text == string.Empty)
+            if (String.IsNullOrWhiteSpace(DescripciontextBox.Text))
             {
-                errorProvider.SetError(DescripciontextBox, "El campo Descripcion no puede estar vacio");
-                DescripciontextBox.Focus();
+                errorProvider.SetError(DescripciontextBox, "El campo descripcion  no puede estar vacio");
                 paso = false;
             }
 
@@ -88,9 +88,6 @@ namespace Parcial1_JohnsielCastanos.UI
                 paso = false;
 
             }
-
-
-
             return paso;
 
         }
@@ -174,62 +171,50 @@ namespace Parcial1_JohnsielCastanos.UI
 
         }
 
-        public void soloLetras(KeyPressEventArgs e)
-        {
-            try
-            {
-                if (Char.IsLetter(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else if (Char.IsControl(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else if (Char.IsSeparator(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else
-                {
-                    e.Handled = true;
-                }
-            }
-            catch (Exception )
-            {
-
-            }
-        }
 
         public void soloNumeros(KeyPressEventArgs e)
         {
-      
-            try
-            {
-                if (Char.IsNumber(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else if (Char.IsControl(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-               else if(e.KeyChar == '.')
-                {
-                    e.Handled = false;
 
-                }
-           
-                else
-                {
-                    e.Handled = true;
-                    MessageBox.Show("Solo se aceptan Numeros");
-                }
-            }
-            catch (Exception )
-            {
 
-            }
+           /* string j="";
+             j = text.Text;
+             string jj;
+            jj = j.Substring(0, Convert.ToInt32("."));
+
+
+
+             try
+             {
+
+                 if (Char.IsNumber(e.KeyChar))
+                 {
+                     e.Handled = false;
+                 }
+                 else if (Char.IsControl(e.KeyChar))
+                 {
+                     e.Handled = false;
+                 }
+                else if(e.KeyChar == '.')
+                 {
+
+                         e.Handled = false;
+
+
+
+
+
+                 }
+
+                 else
+                 {
+                     e.Handled = true;
+                     MessageBox.Show("Solo se aceptan Numeros");
+                 }
+             }
+             catch (Exception )
+             {
+
+             }*/
         }
 
         private void ValorInventario()
@@ -246,33 +231,17 @@ namespace Parcial1_JohnsielCastanos.UI
             if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length == 0)
                 ValorInventariotextBox.Text = "0";
         }
-    
 
-  
-        private void ExistenciatextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            soloNumeros(e);
-        }
+      
 
         private void CostotextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            soloNumeros(e);
-        }
-
-        private void ExistenciatextBox_TextChanged(object sender, EventArgs e)
-        {
-
             ValorInventario();
-
-
-         
         }
 
         private void CostotextBox_TextChanged(object sender, EventArgs e)
         {
             ValorInventario();
-        
-
         }
     }
 }

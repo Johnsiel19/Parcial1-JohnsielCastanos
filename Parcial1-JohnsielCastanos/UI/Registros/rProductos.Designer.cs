@@ -41,9 +41,9 @@
             this.ProductoIdnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
-            this.ExistenciatextBox = new System.Windows.Forms.TextBox();
             this.CostotextBox = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ExistenciatextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ProductoIdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -167,15 +167,6 @@
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
-            // ExistenciatextBox
-            // 
-            this.ExistenciatextBox.Location = new System.Drawing.Point(127, 130);
-            this.ExistenciatextBox.Name = "ExistenciatextBox";
-            this.ExistenciatextBox.Size = new System.Drawing.Size(100, 22);
-            this.ExistenciatextBox.TabIndex = 1;
-            this.ExistenciatextBox.TextChanged += new System.EventHandler(this.ExistenciatextBox_TextChanged);
-            this.ExistenciatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ExistenciatextBox_KeyPress);
-            // 
             // CostotextBox
             // 
             this.CostotextBox.Location = new System.Drawing.Point(127, 175);
@@ -188,6 +179,14 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
+            // 
+            // ExistenciatextBox
+            // 
+            this.ExistenciatextBox.Location = new System.Drawing.Point(127, 130);
+            this.ExistenciatextBox.Name = "ExistenciatextBox";
+            this.ExistenciatextBox.Size = new System.Drawing.Size(100, 22);
+            this.ExistenciatextBox.TabIndex = 1;
+   
             // 
             // rProductos
             // 
@@ -232,8 +231,8 @@
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.TextBox ValorInventariotextBox;
         private System.Windows.Forms.NumericUpDown ProductoIdnumericUpDown;
-        private System.Windows.Forms.TextBox ExistenciatextBox;
         private System.Windows.Forms.TextBox CostotextBox;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.TextBox ExistenciatextBox;
     }
 }

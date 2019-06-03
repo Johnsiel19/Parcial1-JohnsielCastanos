@@ -13,16 +13,17 @@ namespace Parcial1_JohnsielCastanos.BLL
     public class ProductosBLL
     {
 
-        public static bool Guardar(Productos producto)
+        public static bool Guardar(Productos productos)
         {
             bool paso = false;
-            Contexto db = new Contexto();
-
+            Contexto contexto = new Contexto();
             try
             {
-                if (db.Producto.Add(producto) != null)
-                    paso = db.SaveChanges() > 0;
-
+                if (contexto.Producto.Add(productos) != null)
+                    paso = contexto.SaveChanges() > 0;
+                Inventario inventario = InventarioBLL.Buscar(1);
+                inventario.Valor += productos.ValorInvetario;
+                InventarioBLL.Modificar(inventario);
             }
             catch (Exception)
             {
@@ -30,30 +31,37 @@ namespace Parcial1_JohnsielCastanos.BLL
             }
             finally
             {
-                db.Dispose();
+                contexto.Dispose();
             }
 
             return paso;
         }
 
+
         public static bool Modificar(Productos producto)
         {
             bool paso = false;
-            Contexto db = new Contexto();
 
+            Contexto contexto = new Contexto();
+            Productos pro = ProductosBLL.Buscar(producto.ProductoId);
             try
             {
-                db.Entry(producto).State = EntityState.Modified;
-                paso = (db.SaveChanges() > 0);
+                double resultado = producto.ValorInvetario - pro.ValorInvetario;
+
+                Inventario inventario = InventarioBLL.Buscar(1);
+                inventario.Valor += Convert.ToSingle( resultado);
+                InventarioBLL.Modificar(inventario);
+
+                contexto.Entry(producto).State = EntityState.Modified;
+                paso = (contexto.SaveChanges() > 0);
+
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
-            finally
-            {
-                db.Dispose();
-            }
+            finally { contexto.Dispose(); }
+
             return paso;
         }
 
@@ -65,20 +73,24 @@ namespace Parcial1_JohnsielCastanos.BLL
             try
             {
                 var eliminar = db.Producto.Find(id);
+
+                var Inventario = InventarioBLL.Buscar(1);
+                Inventario.Valor -= eliminar.ValorInvetario;
+                InventarioBLL.Modificar(Inventario);
+                //db.Producto.Remove(eliminar);
                 db.Entry(eliminar).State = EntityState.Deleted;
-
                 paso = (db.SaveChanges() > 0);
-
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
-
             }
+
             finally
             {
                 db.Dispose();
             }
+
 
             return paso;
         }
