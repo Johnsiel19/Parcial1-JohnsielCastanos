@@ -93,11 +93,11 @@ namespace Parcial1_JohnsielCastanos.UI
 
         private void LlenarComboBox()
         {
-            var listado = new List<Productos>();
-            listado = ProductosBLL.GetList(p => true);
+            var listado = new List<Ubicaciones>();
+            listado = UbicacionesBLL.GetList(p => true);
             ubicacioncomboBox.DataSource = listado;
             ubicacioncomboBox.DisplayMember = "Descripcion";
-            ubicacioncomboBox.ValueMember = "ProductoId";
+            ubicacioncomboBox.ValueMember = "UbicacionId";
         }
         private void Buscarbutton_Click(object sender, EventArgs e)
         {

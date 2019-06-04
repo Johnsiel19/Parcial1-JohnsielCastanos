@@ -100,6 +100,46 @@ namespace Parcial1_JohnsielCastanos.UI.Registros
 
         }
 
+        public static bool NoDuplicado(string descripcion)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+            try
+            {
+                if (db.Ubicacion.Any(p => p.Descripcion.Equals(descripcion)))
+                {
+                    paso = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+
+
+            return paso;
+        }
+
+        private bool ValidarCampos()
+        {
+            bool paso = true;
+            if (DescripciontextBox.Text == string.Empty)
+            {
+                MessageBox.Show("La descripcion no puede estar vacia");
+                DescripciontextBox.Focus();
+                paso = false;
+            }
+            if (NoDuplicado (DescripciontextBox.Text))
+            {
+                MessageBox.Show("Los nombre no pueden ser iguales");
+                DescripciontextBox.Focus();
+                paso = false;
+            }
+
+            return paso;
+        }
+
         private void Eliminarbutton_Click_1(object sender, EventArgs e)
         {
             errorProvider.Clear();
@@ -123,6 +163,8 @@ namespace Parcial1_JohnsielCastanos.UI.Registros
             bool paso = false;
 
             if (!Validar())
+                return;
+            if (!ValidarCampos())
                 return;
 
             ubicacion = LlenaClase();
