@@ -125,6 +125,7 @@
             this.CostotextBox.Size = new System.Drawing.Size(100, 22);
             this.CostotextBox.TabIndex = 2;
             this.CostotextBox.TextChanged += new System.EventHandler(this.CostotextBox_TextChanged);
+            this.CostotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CostotextBox_KeyPress);
             // 
             // errorProvider
             // 
@@ -242,7 +243,7 @@
             this.Name = "rProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro Producto";
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RProductos_KeyPress);
+     
             ((System.ComponentModel.ISupportInitialize)(this.ProductoIdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);

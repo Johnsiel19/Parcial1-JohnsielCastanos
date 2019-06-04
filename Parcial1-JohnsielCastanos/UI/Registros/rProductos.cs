@@ -67,9 +67,6 @@ namespace Parcial1_JohnsielCastanos.UI
             bool paso = true;
             errorProvider.Clear();
 
-          
-
-
             if (String.IsNullOrWhiteSpace(DescripciontextBox.Text))
             {
                 errorProvider.SetError(DescripciontextBox, "El campo descripcion  no puede estar vacio");
@@ -183,44 +180,6 @@ namespace Parcial1_JohnsielCastanos.UI
         }
 
 
-        public void soloNumeros(KeyPressEventArgs e)
-        {
-
-             try
-             {
-
-                 if (Char.IsNumber(e.KeyChar))
-                 {
-                     e.Handled = false;
-                 }
-                 else if (Char.IsControl(e.KeyChar))
-                 {
-                     e.Handled = false;
-                 }
-
-                else if (e.KeyChar == '.')
-                {
-
-
-                    e.Handled = false;
-
-
-
-                }
-
-
-                 else
-                 {
-                     e.Handled = true;
-                     MessageBox.Show("Solo se aceptan Numeros");
-                 }
-             }
-             catch (Exception )
-             {
-
-             }
-        }
-
         private void ValorInventario()
         {
             if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length > 0)
@@ -251,19 +210,54 @@ namespace Parcial1_JohnsielCastanos.UI
 
         private void ExistenciatextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            soloNumeros(e);
+
+            char ch2 = e.KeyChar;
+
+            if (e.KeyChar == '.')
+            {
+                if (ExistenciatextBox.TextLength < 1)
+                    e.Handled = true;
+            }
+
+            if (ch2 == 46 && ExistenciatextBox.Text.IndexOf('.') != -1)
+                e.Handled = true;
+
+            if (!char.IsDigit(ch2) && ch2 != 8 && ch2 != 46)
+            {
+                e.Handled = true;
+            }
+            return;
         }
 
-        private void RProductos_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            soloNumeros(e);
-        }
+  
 
         private void AgregarUbicacion_Click(object sender, EventArgs e)
         {
             rUbicacion frm = new rUbicacion();
             frm.ShowDialog();
             
+        }
+
+        private void CostotextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            char ch2 = e.KeyChar;
+
+            if (e.KeyChar == '.')
+            {
+                if (ExistenciatextBox.TextLength < 1)
+                    e.Handled = true;
+            }
+
+            if (ch2 == 46 && ExistenciatextBox.Text.IndexOf('.') != -1)
+                e.Handled = true;
+
+            if (!char.IsDigit(ch2) && ch2 != 8 && ch2 != 46)
+            {
+                e.Handled = true;
+            }
+            return;
+
         }
     }
 }
