@@ -7,23 +7,42 @@ using Parcial1_JohnsielCastanos.DAL;
 using Parcial1_JohnsielCastanos.Entidades;
 using System.Data.Entity;
 using System.Linq.Expressions;
+using Parcial1_JohnsielCastanos.BLL;
 
 namespace Parcial1_JohnsielCastanos.BLL
 {
     public class ProductosBLL
     {
 
+        public static Inventario LlenaClase()
+        {
+            Inventario inventario = new Inventario();
+            inventario.Valor = 0;
+            inventario.InventarioId = 1;
+
+            return inventario;
+        }
         public static bool Guardar(Productos productos)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
+            Inventario inventario = new Inventario();
             try
             {
-                if (contexto.Producto.Add(productos) != null)
+                inventario = InventariosBLL.Buscar(1);
+                if (inventario == null)
+                {
+
+                    inventario = LlenaClase();
+                    paso = InventariosBLL.Guardar(inventario);
+   
+                }
+               
+                if (contexto.Producto.Add(productos) != null) 
                     paso = contexto.SaveChanges() > 0;
-                Inventario inventario = InventarioBLL.Buscar(1);
+               
                 inventario.Valor += productos.ValorInvetario;
-                InventarioBLL.Modificar(inventario);
+                InventariosBLL.Modificar(inventario);
             }
             catch (Exception)
             {
@@ -48,9 +67,9 @@ namespace Parcial1_JohnsielCastanos.BLL
             {
                 double resultado = producto.ValorInvetario - pro.ValorInvetario;
 
-                Inventario inventario = InventarioBLL.Buscar(1);
+                Inventario inventario = InventariosBLL.Buscar(1);
                 inventario.Valor += Convert.ToSingle( resultado);
-                InventarioBLL.Modificar(inventario);
+                InventariosBLL.Modificar(inventario);
 
                 contexto.Entry(producto).State = EntityState.Modified;
                 paso = (contexto.SaveChanges() > 0);
@@ -74,10 +93,10 @@ namespace Parcial1_JohnsielCastanos.BLL
             {
                 var eliminar = db.Producto.Find(id);
 
-                var Inventario = InventarioBLL.Buscar(1);
+                var Inventario = InventariosBLL.Buscar(1);
                 Inventario.Valor -= eliminar.ValorInvetario;
-                InventarioBLL.Modificar(Inventario);
-                //db.Producto.Remove(eliminar);
+                InventariosBLL.Modificar(Inventario);
+        
                 db.Entry(eliminar).State = EntityState.Deleted;
                 paso = (db.SaveChanges() > 0);
             }
@@ -113,6 +132,26 @@ namespace Parcial1_JohnsielCastanos.BLL
                 db.Dispose();
             }
             return producto;
+        }
+
+        public static List<Productos> GetList(Expression<Func<Productos, bool>> producto)
+        {
+            Contexto contexto = new Contexto();
+            List<Productos> lista = new List<Productos>();
+            try
+            {
+                lista = contexto.Producto.Where(producto).ToList();
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return lista;
         }
 
 

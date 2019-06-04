@@ -12,6 +12,8 @@ using Parcial1_JohnsielCastanos.BLL;
 using Parcial1_JohnsielCastanos.DAL;
 using System.Globalization;
 
+using Parcial1_JohnsielCastanos.UI.Registros;
+
 namespace Parcial1_JohnsielCastanos.UI
 {
     public partial class rProductos : Form
@@ -19,6 +21,7 @@ namespace Parcial1_JohnsielCastanos.UI
         public rProductos()
         {
             InitializeComponent();
+            LlenarComboBox();
          
         }
 
@@ -92,6 +95,14 @@ namespace Parcial1_JohnsielCastanos.UI
 
         }
 
+        private void LlenarComboBox()
+        {
+            var listado = new List<Productos>();
+            listado = ProductosBLL.GetList(p => true);
+            ubicacioncomboBox.DataSource = listado;
+            ubicacioncomboBox.DisplayMember = "Descripcion";
+            ubicacioncomboBox.ValueMember = "ProductoId";
+        }
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
 
@@ -246,6 +257,13 @@ namespace Parcial1_JohnsielCastanos.UI
         private void RProductos_KeyPress(object sender, KeyPressEventArgs e)
         {
             soloNumeros(e);
+        }
+
+        private void AgregarUbicacion_Click(object sender, EventArgs e)
+        {
+            rUbicacion frm = new rUbicacion();
+            frm.ShowDialog();
+            
         }
     }
 }

@@ -35,15 +35,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.DescripciontextBox = new System.Windows.Forms.TextBox();
-            this.Guardarbutton = new System.Windows.Forms.Button();
-            this.Eliminarbutton = new System.Windows.Forms.Button();
             this.ValorInventariotextBox = new System.Windows.Forms.TextBox();
             this.ProductoIdnumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.Nuevobutton = new System.Windows.Forms.Button();
-            this.Buscarbutton = new System.Windows.Forms.Button();
             this.CostotextBox = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.ExistenciatextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ubicacioncomboBox = new System.Windows.Forms.ComboBox();
+            this.AgregarUbicacion = new System.Windows.Forms.Button();
+            this.Eliminarbutton = new System.Windows.Forms.Button();
+            this.Guardarbutton = new System.Windows.Forms.Button();
+            this.Nuevobutton = new System.Windows.Forms.Button();
+            this.Buscarbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProductoIdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -100,32 +103,6 @@
             this.DescripciontextBox.Size = new System.Drawing.Size(226, 22);
             this.DescripciontextBox.TabIndex = 0;
             // 
-            // Guardarbutton
-            // 
-            this.Guardarbutton.Image = global::Parcial1_JohnsielCastanos.Properties.Resources.guardar;
-            this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Guardarbutton.Location = new System.Drawing.Point(143, 316);
-            this.Guardarbutton.Name = "Guardarbutton";
-            this.Guardarbutton.Size = new System.Drawing.Size(75, 64);
-            this.Guardarbutton.TabIndex = 4;
-            this.Guardarbutton.Text = "Guardar";
-            this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Guardarbutton.UseVisualStyleBackColor = true;
-            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
-            // 
-            // Eliminarbutton
-            // 
-            this.Eliminarbutton.Image = global::Parcial1_JohnsielCastanos.Properties.Resources.eliminar;
-            this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(278, 316);
-            this.Eliminarbutton.Name = "Eliminarbutton";
-            this.Eliminarbutton.Size = new System.Drawing.Size(75, 64);
-            this.Eliminarbutton.TabIndex = 7;
-            this.Eliminarbutton.Text = "Eliminar";
-            this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.UseVisualStyleBackColor = true;
-            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
-            // 
             // ValorInventariotextBox
             // 
             this.ValorInventariotextBox.Location = new System.Drawing.Point(127, 220);
@@ -140,6 +117,79 @@
             this.ProductoIdnumericUpDown.Name = "ProductoIdnumericUpDown";
             this.ProductoIdnumericUpDown.Size = new System.Drawing.Size(100, 22);
             this.ProductoIdnumericUpDown.TabIndex = 11;
+            // 
+            // CostotextBox
+            // 
+            this.CostotextBox.Location = new System.Drawing.Point(127, 175);
+            this.CostotextBox.Name = "CostotextBox";
+            this.CostotextBox.Size = new System.Drawing.Size(100, 22);
+            this.CostotextBox.TabIndex = 2;
+            this.CostotextBox.TextChanged += new System.EventHandler(this.CostotextBox_TextChanged);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // ExistenciatextBox
+            // 
+            this.ExistenciatextBox.Location = new System.Drawing.Point(127, 130);
+            this.ExistenciatextBox.Name = "ExistenciatextBox";
+            this.ExistenciatextBox.Size = new System.Drawing.Size(100, 22);
+            this.ExistenciatextBox.TabIndex = 1;
+            this.ExistenciatextBox.TextChanged += new System.EventHandler(this.ExistenciatextBox_TextChanged);
+            this.ExistenciatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ExistenciatextBox_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(9, 273);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 19);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Ubicaciones";
+            // 
+            // ubicacioncomboBox
+            // 
+            this.ubicacioncomboBox.FormattingEnabled = true;
+            this.ubicacioncomboBox.Location = new System.Drawing.Point(127, 274);
+            this.ubicacioncomboBox.Name = "ubicacioncomboBox";
+            this.ubicacioncomboBox.Size = new System.Drawing.Size(100, 24);
+            this.ubicacioncomboBox.TabIndex = 12;
+            // 
+            // AgregarUbicacion
+            // 
+            this.AgregarUbicacion.Image = global::Parcial1_JohnsielCastanos.Properties.Resources.add_icon_icons_com_74429;
+            this.AgregarUbicacion.Location = new System.Drawing.Point(233, 268);
+            this.AgregarUbicacion.Name = "AgregarUbicacion";
+            this.AgregarUbicacion.Size = new System.Drawing.Size(47, 42);
+            this.AgregarUbicacion.TabIndex = 13;
+            this.AgregarUbicacion.UseVisualStyleBackColor = true;
+            this.AgregarUbicacion.Click += new System.EventHandler(this.AgregarUbicacion_Click);
+            // 
+            // Eliminarbutton
+            // 
+            this.Eliminarbutton.Image = global::Parcial1_JohnsielCastanos.Properties.Resources.eliminar;
+            this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Eliminarbutton.Location = new System.Drawing.Point(278, 316);
+            this.Eliminarbutton.Name = "Eliminarbutton";
+            this.Eliminarbutton.Size = new System.Drawing.Size(75, 64);
+            this.Eliminarbutton.TabIndex = 7;
+            this.Eliminarbutton.Text = "Eliminar";
+            this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
+            // 
+            // Guardarbutton
+            // 
+            this.Guardarbutton.Image = global::Parcial1_JohnsielCastanos.Properties.Resources.guardar;
+            this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Guardarbutton.Location = new System.Drawing.Point(143, 316);
+            this.Guardarbutton.Name = "Guardarbutton";
+            this.Guardarbutton.Size = new System.Drawing.Size(75, 64);
+            this.Guardarbutton.TabIndex = 4;
+            this.Guardarbutton.Text = "Guardar";
+            this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
             // Nuevobutton
             // 
@@ -167,32 +217,14 @@
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
-            // CostotextBox
-            // 
-            this.CostotextBox.Location = new System.Drawing.Point(127, 175);
-            this.CostotextBox.Name = "CostotextBox";
-            this.CostotextBox.Size = new System.Drawing.Size(100, 22);
-            this.CostotextBox.TabIndex = 2;
-            this.CostotextBox.TextChanged += new System.EventHandler(this.CostotextBox_TextChanged);
-            // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
-            // 
-            // ExistenciatextBox
-            // 
-            this.ExistenciatextBox.Location = new System.Drawing.Point(127, 130);
-            this.ExistenciatextBox.Name = "ExistenciatextBox";
-            this.ExistenciatextBox.Size = new System.Drawing.Size(100, 22);
-            this.ExistenciatextBox.TabIndex = 1;
-            this.ExistenciatextBox.TextChanged += new System.EventHandler(this.ExistenciatextBox_TextChanged);
-            this.ExistenciatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ExistenciatextBox_KeyPress);
-            // 
             // rProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(373, 418);
+            this.Controls.Add(this.AgregarUbicacion);
+            this.Controls.Add(this.ubicacioncomboBox);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.CostotextBox);
             this.Controls.Add(this.ExistenciatextBox);
             this.Controls.Add(this.ProductoIdnumericUpDown);
@@ -235,5 +267,8 @@
         private System.Windows.Forms.TextBox CostotextBox;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.TextBox ExistenciatextBox;
+        private System.Windows.Forms.Button AgregarUbicacion;
+        private System.Windows.Forms.ComboBox ubicacioncomboBox;
+        private System.Windows.Forms.Label label6;
     }
 }

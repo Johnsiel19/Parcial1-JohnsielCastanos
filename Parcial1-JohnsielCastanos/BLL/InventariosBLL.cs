@@ -9,7 +9,7 @@ using Parcial1_JohnsielCastanos.Entidades;
 
 namespace Parcial1_JohnsielCastanos.BLL
 {
-     public class InventarioBLL
+     public class InventariosBLL
     {
 
         public static bool Guardar(Inventario inventario)

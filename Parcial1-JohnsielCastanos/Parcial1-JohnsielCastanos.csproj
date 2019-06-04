@@ -53,11 +53,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\InventarioBLL.cs" />
+    <Compile Include="BLL\InventariosBLL.cs" />
     <Compile Include="BLL\ProductosBLL.cs" />
+    <Compile Include="BLL\UbicacionesBLL.cs" />
     <Compile Include="DAL\Contexto.cs" />
     <Compile Include="Entidades\Inventario.cs" />
     <Compile Include="Entidades\Productos.cs" />
+    <Compile Include="Entidades\Ubicaciones.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +80,12 @@
     <Compile Include="UI\Registros\rProductos.Designer.cs">
       <DependentUpon>rProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Registros\rUbicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\rUbicacion.Designer.cs">
+      <DependentUpon>rUbicacion.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +105,9 @@
     <EmbeddedResource Include="UI\Registros\rProductos.resx">
       <DependentUpon>rProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\rUbicacion.resx">
+      <DependentUpon>rUbicacion.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -111,9 +122,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="DAL\Script\SQLProductos.sql" />
+    <None Include="Resources\add_icon-icons.com_74429.png" />
     <None Include="Resources\actualizar.png" />
     <None Include="Resources\eliminar.png" />
     <None Include="Resources\guardar.png" />

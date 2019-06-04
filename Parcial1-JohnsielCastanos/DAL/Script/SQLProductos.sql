@@ -16,7 +16,3 @@ create table Inventarios(
 InventarioId int,
 Valor real)
 
-
-
- SET IDENTITY_INSERT Inventarios ON
-insert into Inventarios(InventarioId, Valor) values('1','0');
