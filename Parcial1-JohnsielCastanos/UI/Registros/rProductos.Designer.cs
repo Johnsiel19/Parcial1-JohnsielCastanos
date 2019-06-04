@@ -37,9 +37,7 @@
             this.DescripciontextBox = new System.Windows.Forms.TextBox();
             this.ValorInventariotextBox = new System.Windows.Forms.TextBox();
             this.ProductoIdnumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.CostotextBox = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ExistenciatextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.ubicacioncomboBox = new System.Windows.Forms.ComboBox();
             this.AgregarUbicacion = new System.Windows.Forms.Button();
@@ -47,8 +45,12 @@
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
+            this.ExistencianumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.CostoUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.ProductoIdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExistencianumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CostoUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -92,9 +94,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 224);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 17);
+            this.label5.Size = new System.Drawing.Size(107, 17);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Valir Inventario";
+            this.label5.Text = "Valor Inventario";
             // 
             // DescripciontextBox
             // 
@@ -118,27 +120,9 @@
             this.ProductoIdnumericUpDown.Size = new System.Drawing.Size(100, 22);
             this.ProductoIdnumericUpDown.TabIndex = 11;
             // 
-            // CostotextBox
-            // 
-            this.CostotextBox.Location = new System.Drawing.Point(127, 175);
-            this.CostotextBox.Name = "CostotextBox";
-            this.CostotextBox.Size = new System.Drawing.Size(100, 22);
-            this.CostotextBox.TabIndex = 2;
-            this.CostotextBox.TextChanged += new System.EventHandler(this.CostotextBox_TextChanged);
-            this.CostotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CostotextBox_KeyPress);
-            // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // ExistenciatextBox
-            // 
-            this.ExistenciatextBox.Location = new System.Drawing.Point(127, 130);
-            this.ExistenciatextBox.Name = "ExistenciatextBox";
-            this.ExistenciatextBox.Size = new System.Drawing.Size(100, 22);
-            this.ExistenciatextBox.TabIndex = 1;
-            this.ExistenciatextBox.TextChanged += new System.EventHandler(this.ExistenciatextBox_TextChanged);
-            this.ExistenciatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ExistenciatextBox_KeyPress);
             // 
             // label6
             // 
@@ -218,16 +202,44 @@
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
+            // ExistencianumericUpDown
+            // 
+            this.ExistencianumericUpDown.DecimalPlaces = 2;
+            this.ExistencianumericUpDown.Location = new System.Drawing.Point(127, 173);
+            this.ExistencianumericUpDown.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.ExistencianumericUpDown.Name = "ExistencianumericUpDown";
+            this.ExistencianumericUpDown.Size = new System.Drawing.Size(100, 22);
+            this.ExistencianumericUpDown.TabIndex = 14;
+            this.ExistencianumericUpDown.ValueChanged += new System.EventHandler(this.ExistencianumericUpDown_ValueChanged);
+            // 
+            // CostoUpDown
+            // 
+            this.CostoUpDown.DecimalPlaces = 2;
+            this.CostoUpDown.Location = new System.Drawing.Point(127, 128);
+            this.CostoUpDown.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.CostoUpDown.Name = "CostoUpDown";
+            this.CostoUpDown.Size = new System.Drawing.Size(100, 22);
+            this.CostoUpDown.TabIndex = 15;
+            this.CostoUpDown.ValueChanged += new System.EventHandler(this.CostoUpDown_ValueChanged);
+            // 
             // rProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(373, 418);
+            this.Controls.Add(this.CostoUpDown);
+            this.Controls.Add(this.ExistencianumericUpDown);
             this.Controls.Add(this.AgregarUbicacion);
             this.Controls.Add(this.ubicacioncomboBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.CostotextBox);
-            this.Controls.Add(this.ExistenciatextBox);
             this.Controls.Add(this.ProductoIdnumericUpDown);
             this.Controls.Add(this.ValorInventariotextBox);
             this.Controls.Add(this.Eliminarbutton);
@@ -243,9 +255,10 @@
             this.Name = "rProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro Producto";
-     
             ((System.ComponentModel.ISupportInitialize)(this.ProductoIdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExistencianumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CostoUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,11 +278,11 @@
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.TextBox ValorInventariotextBox;
         private System.Windows.Forms.NumericUpDown ProductoIdnumericUpDown;
-        private System.Windows.Forms.TextBox CostotextBox;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.TextBox ExistenciatextBox;
         private System.Windows.Forms.Button AgregarUbicacion;
         private System.Windows.Forms.ComboBox ubicacioncomboBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown CostoUpDown;
+        private System.Windows.Forms.NumericUpDown ExistencianumericUpDown;
     }
 }

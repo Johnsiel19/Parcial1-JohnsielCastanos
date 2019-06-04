@@ -29,8 +29,8 @@ namespace Parcial1_JohnsielCastanos.UI
         {
             ProductoIdnumericUpDown.Value = 0;
             DescripciontextBox.Text = string.Empty;
-            CostotextBox.Text = string.Empty;
-            ExistenciatextBox.Text = string.Empty;
+            CostoUpDown.Value = 0;
+            ExistencianumericUpDown.Value = 0;
             ValorInventariotextBox.Text = string.Empty;
         }
 
@@ -39,8 +39,8 @@ namespace Parcial1_JohnsielCastanos.UI
             Productos producto = new Productos();
             producto.ProductoId = Convert.ToInt32(ProductoIdnumericUpDown.Value);
             producto.Descripcion = DescripciontextBox.Text;
-            producto.Existencia = Convert.ToSingle(ExistenciatextBox.Text);
-            producto.Costo = Convert.ToSingle(CostotextBox.Text);
+            producto.Existencia = Convert.ToSingle(ExistencianumericUpDown.Value );
+            producto.Costo = Convert.ToSingle(CostoUpDown.Value);
             producto.ValorInvetario = Convert.ToSingle(ValorInventariotextBox.Text);
             return producto;
         }
@@ -49,8 +49,8 @@ namespace Parcial1_JohnsielCastanos.UI
         {
             ProductoIdnumericUpDown.Value = producto.ProductoId;
             DescripciontextBox.Text = producto.Descripcion;
-            ExistenciatextBox.Text = producto.Existencia.ToString();
-            CostotextBox.Text = producto.Costo.ToString();
+            ExistencianumericUpDown.Value =Convert.ToDecimal( producto.Existencia) ;
+            CostoUpDown.Value = Convert.ToDecimal(producto.Costo);
             ValorInventariotextBox.Text = producto.ValorInvetario.ToString();
         }
 
@@ -73,18 +73,17 @@ namespace Parcial1_JohnsielCastanos.UI
                 paso = false;
             }
 
-            if (ExistenciatextBox.Text == string.Empty)
+            if (ExistencianumericUpDown.Value == 0)
             {
-                errorProvider.SetError(ExistenciatextBox, "El campooExistencia no puede estar vacio");
-                ExistenciatextBox.Focus();
+                errorProvider.SetError(ExistencianumericUpDown, "El campooExistencia no puede estar vacio");
+                ExistencianumericUpDown.Focus();
                 paso = false;
 
             }
 
-            if (CostotextBox.Text == string.Empty)
-            {
-                errorProvider.SetError(CostotextBox, "El Costo no puede estar vacio");
-                CostotextBox.Focus();
+            if (CostoUpDown.Value == 0)            {
+                errorProvider.SetError(CostoUpDown, "El Costo no puede estar vacio");
+                CostoUpDown.Focus();
                 paso = false;
 
             }
@@ -121,7 +120,7 @@ namespace Parcial1_JohnsielCastanos.UI
             {
                 MessageBox.Show("Producto no existe");
             }
-            ValorInventario();
+
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
@@ -178,58 +177,13 @@ namespace Parcial1_JohnsielCastanos.UI
             Limpiar();
 
         }
-
-
         private void ValorInventario()
         {
-            if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length > 0)
-                ValorInventariotextBox.Text = Convert.ToString(Convert.ToSingle(CostotextBox.Text) * Convert.ToSingle(ExistenciatextBox.Text));
+            ValorInventariotextBox.Text = Convert.ToString( Convert.ToDecimal(ExistencianumericUpDown.Value) * Convert.ToDecimal(CostoUpDown.Value));
 
-            if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length == 0)
-                ValorInventariotextBox.Text = "0";
-
-            if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length > 0)
-                ValorInventariotextBox.Text = "0";
-
-            if (CostotextBox.Text.Length == 0 && ExistenciatextBox.Text.Length == 0)
-                ValorInventariotextBox.Text = "0";
         }
 
-      
 
-
-        private void CostotextBox_TextChanged(object sender, EventArgs e)
-        {
-            ValorInventario();
-        }
-
-        private void ExistenciatextBox_TextChanged(object sender, EventArgs e)
-        {
-            ValorInventario();
-        }
-
-        private void ExistenciatextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-            char ch2 = e.KeyChar;
-
-            if (e.KeyChar == '.')
-            {
-                if (ExistenciatextBox.TextLength < 1)
-                    e.Handled = true;
-            }
-
-            if (ch2 == 46 && ExistenciatextBox.Text.IndexOf('.') != -1)
-                e.Handled = true;
-
-            if (!char.IsDigit(ch2) && ch2 != 8 && ch2 != 46)
-            {
-                e.Handled = true;
-            }
-            return;
-        }
-
-  
 
         private void AgregarUbicacion_Click(object sender, EventArgs e)
         {
@@ -238,26 +192,15 @@ namespace Parcial1_JohnsielCastanos.UI
             
         }
 
-        private void CostotextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void CostoUpDown_ValueChanged(object sender, EventArgs e)
         {
-
-            char ch2 = e.KeyChar;
-
-            if (e.KeyChar == '.')
-            {
-                if (ExistenciatextBox.TextLength < 1)
-                    e.Handled = true;
-            }
-
-            if (ch2 == 46 && ExistenciatextBox.Text.IndexOf('.') != -1)
-                e.Handled = true;
-
-            if (!char.IsDigit(ch2) && ch2 != 8 && ch2 != 46)
-            {
-                e.Handled = true;
-            }
-            return;
-
+            ValorInventario();
         }
+
+        private void ExistencianumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            ValorInventario();
+        }
+
     }
 }
